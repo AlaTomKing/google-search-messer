@@ -34,6 +34,7 @@
     <h2>Fuck your google search results:</h2><br>
         <button onclick="fuck()">TYPE RANDOM SHIT IN THERE</button><br>
         <button onclick="stopFucking()">stop</button><br>
+        <p id="searching"></p>
         <p id="status"></p>
         <!-- <button onclick="fuck()">MAKE IT ANSWER SIMPLE ADDITION PROBLEM</button> -->
         <script>
@@ -41,6 +42,7 @@
             let delay = 8000;
 
             let startFucking, stopFucking;
+            const searching = document.getElementById("searching");
             (() => {
                 const status = document.getElementById("status");
 
@@ -81,6 +83,7 @@
                 }
 
                 stopFucking = () => {
+                    searching.innerHTML = "";
                     status.innerHTML = "stopped fucking.";
                     runnin = false;
                 }
@@ -111,8 +114,9 @@
                         prompt += Math.floor(Math.random()*(2**48));
                         break;
                 }
-                
-                window.open(`https://google.com/search?q=${prompt}`, 'fucking google...', 'screenY=550,width=300,height=200');
+
+                searching = `searching: "${prompt}"`;
+                window.open(`https://google.com/search?q=${prompt}`, 'fucking google...', 'screenY=580,width=300,height=200');
             }
 
             const fuck = () => {
