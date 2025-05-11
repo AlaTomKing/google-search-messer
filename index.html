@@ -95,7 +95,7 @@
                     case 0: // questions
                         prompt = questions[Math.floor(Math.random() * questions.length)];
                         break;
-                    case 1: // math
+                    default: // math
                         const numbers = Math.floor(Math.random() * 20);
                         for (let i = 0; i < numbers-1; i++) {
                             const num = Math.floor(Math.random()*(2**16));
@@ -105,7 +105,7 @@
                                 case 0: prompt+="%2B"; break; // +
                                 case 1: prompt+="-"; break; // -
                                 case 2: prompt+="%2F"; break; // /
-                                case 3: prompt+="*"; break; // *
+                                default: prompt+="*"; break; // *
                             }
                         }
                         prompt += Math.floor(Math.random()*(2**48));
